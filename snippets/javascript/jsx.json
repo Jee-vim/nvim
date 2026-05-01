@@ -1,0 +1,12 @@
+{
+  "jsx element": {
+    "prefix": "jj",
+    "body": "<${1:elementName}>\n\t$0\n</${1}>",
+    "description": "an element"
+  },
+  "jsx element self closed": {
+    "prefix": "jc",
+    "body": "<${1:elementName} />",
+    "description": "an element self closed"
+  }
+}
