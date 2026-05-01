@@ -767,5 +767,11 @@
     "body": "<page>$1</page>",
     "description": "el page lynx",
     "scope": "text.html"
+  },
+  "class attribute": {
+    "prefix": "class",
+    "body": "class=\"$1\"$0",
+    "description": "HTML class attribute",
+    "scope": "text.html"
   }
 }

@@ -5,6 +5,7 @@ vim.lsp.enable({
   "css_ls",
   "nixd_ls",
   "zls",
+  "volar",
 })
 vim.lsp.config("*", {
   root_markers = { ".git", "package.json", "tsconfig.json" },
@@ -25,16 +26,18 @@ vim.diagnostic.config({
   float = {
     focusable = true,
     style = "minimal",
-    border = "rounded", -- "single", "double", "shadow", etc.
-    source = "always",  -- "always", "never"
+    border = "rounded",
+    source = "always",
     header = "",
     prefix = "",
   },
 })
 
 vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = { "*.nix", "*.zig", "*.ts", "*.tsx", "*.astro", "*.css", "*.lua" },
+  pattern = { "*.nix", "*.zig", "*.ts", "*.tsx", "*.astro", "*.css", "*.lua", "*.vue" },
   callback = function()
-    vim.lsp.buf.format({ async = true })
+    vim.lsp.buf.format({ async = false })
   end,
 })
+
+vim.lsp.set_log_level("debug")

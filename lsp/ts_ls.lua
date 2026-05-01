@@ -7,9 +7,4 @@ return {
       tsdk = "./node_modules/typescript/lib"
     },
   },
-  handlers = {
-    ["workspace/applyEdit"] = function()
-      return { applied = false }
-    end,
-  },
 }

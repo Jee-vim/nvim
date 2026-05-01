@@ -1,0 +1,178 @@
+{
+  "Vue 3 Component (Composition API)": {
+    "prefix": "vbase",
+    "body": [
+      "<template>",
+      "  <div>",
+      "    ${0}",
+      "  </div>",
+      "</template>",
+      "",
+      "<script setup lang=\"ts\">",
+      "import { ref } from 'vue'",
+      "",
+      "</script>",
+      "",
+      "<style scoped>",
+      "</style>"
+    ],
+    "description": "Vue 3 component with Composition API and TypeScript"
+  },
+  "Vue 3 Component (Options API)": {
+    "prefix": "vbase-options",
+    "body": [
+      "<template>",
+      "  <div>",
+      "    ${0}",
+      "  </div>",
+      "</template>",
+      "",
+      "<script lang=\"ts\">",
+      "export default {",
+      "  name: '${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}',",
+      "  data() {",
+      "    return {",
+      "      ${1}",
+      "    }",
+      "  },",
+      "  methods: {",
+      "    ${2}",
+      "  }",
+      "}",
+      "</script>",
+      "",
+      "<style scoped>",
+      "</style>"
+    ],
+    "description": "Vue 3 component with Options API"
+  },
+  "ref": {
+    "prefix": "vref",
+    "body": "const ${1:variable} = ref(${2})$0",
+    "description": "Vue ref()"
+  },
+  "computed": {
+    "prefix": "vcomputed",
+    "body": "const ${1:computedValue} = computed(() => ${2})$0",
+    "description": "Vue computed()"
+  },
+  "watch": {
+    "prefix": "vwatch",
+    "body": "watch(${1:source}, (${2:newVal}, ${3:oldVal}) => {\n  ${0}\n})$0",
+    "description": "Vue watch()"
+  },
+  "onMounted": {
+    "prefix": "vonmounted",
+    "body": "onMounted(() => {\n  ${0}\n})$0",
+    "description": "Vue onMounted() lifecycle hook"
+  },
+  "onUnmounted": {
+    "prefix": "vonunmounted",
+    "body": "onUnmounted(() => {\n  ${0}\n})$0",
+    "description": "Vue onUnmounted() lifecycle hook"
+  },
+  "v-model": {
+    "prefix": "vmodel",
+    "body": "v-model=\"${1}\"$0",
+    "description": "Vue v-model directive"
+  },
+  "v-for": {
+    "prefix": "vfor",
+    "body": "v-for=\"${1:item} in ${2:items}\" :key=\"${1}.id\"$0",
+    "description": "Vue v-for directive"
+  },
+  "v-if": {
+    "prefix": "vif",
+    "body": "v-if=\"${1}\"$0",
+    "description": "Vue v-if directive"
+  },
+  "v-show": {
+    "prefix": "vshow",
+    "body": "v-show=\"${1}\"$0",
+    "description": "Vue v-show directive"
+  },
+  "v-bind": {
+    "prefix": "vbind",
+    "body": ":${1:prop}=\"${2}\"$0",
+    "description": "Vue v-bind shorthand"
+  },
+  "v-on": {
+    "prefix": "von",
+    "body": "@${1:event}=\"${2}\"$0",
+    "description": "Vue v-on shorthand"
+  },
+  "template": {
+    "prefix": "vtemplate",
+    "body": [
+      "<template>",
+      "  ${0}",
+      "</template>"
+    ],
+    "description": "Vue template block"
+  },
+  "script setup": {
+    "prefix": "vscript-setup",
+    "body": [
+      "<script setup lang=\"ts\">",
+      "${0}",
+      "</script>"
+    ],
+    "description": "Vue script setup block with TypeScript"
+  },
+  "style scoped": {
+    "prefix": "vstyle-scoped",
+    "body": [
+      "<style scoped>",
+      "  ${0}",
+      "</style>"
+    ],
+    "description": "Vue scoped style block"
+  },
+  "Vue 3 Component (SFC)": {
+    "prefix": "vsfc",
+    "body": [
+      "<template>",
+      "  <div class=\"${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}\">",
+      "    ${0}",
+      "  </div>",
+      "</template>",
+      "",
+      "<script setup lang=\"ts\">",
+      "</script>",
+      "",
+      "<style scoped>",
+      "</style>"
+    ],
+    "description": "Vue 3 Single File Component"
+  },
+  "defineProps": {
+    "prefix": "vprops",
+    "body": "const props = defineProps<{ ${1:propName}: ${2:type} }>()$0",
+    "description": "Vue defineProps with TypeScript"
+  },
+  "defineEmits": {
+    "prefix": "vemits",
+    "body": "const emit = defineEmits<{ (e: '${1:event}', ${2:payload}: ${3:type}): void }>()$0",
+    "description": "Vue defineEmits with TypeScript"
+  },
+  "nextTick": {
+    "prefix": "vnexttick",
+    "body": "nextTick(() => {\n  ${0}\n})$0",
+    "description": "Vue nextTick()"
+  },
+  "provide/inject": {
+    "prefix": "vprovide",
+    "body": "provide(${1:symbol}, ${2:value})$0",
+    "description": "Vue provide()"
+  },
+  "inject": {
+    "prefix": "vinject",
+    "body": "const ${1:value} = inject(${2:symbol})$0",
+    "description": "Vue inject()"
+  },
+  ":class directive": {
+    "prefix": ":class",
+    "body": ":class=\"$1\"$0",
+    "description": "Vue :class directive"
+  }
+}
