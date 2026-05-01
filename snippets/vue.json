@@ -171,8 +171,13 @@
     "description": "Vue inject()"
   },
   ":class directive": {
-    "prefix": ":class",
+    "prefix": "class",
     "body": ":class=\"$1\"$0",
     "description": "Vue :class directive"
+  },
+  ":class arr": {
+    "prefix": "class-arr",
+    "body": ":class=\"['$1', { $0 }]\"",
+    "description": "Vue :class array"
   }
 }
