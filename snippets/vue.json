@@ -2,49 +2,18 @@
   "Vue 3 Component (Composition API)": {
     "prefix": "vbase",
     "body": [
-      "<template>",
-      "  <div>",
-      "    ${0}",
-      "  </div>",
-      "</template>",
-      "",
       "<script setup lang=\"ts\">",
       "import { ref } from 'vue'",
       "",
       "</script>",
-      "",
-      "<style scoped>",
-      "</style>"
-    ],
-    "description": "Vue 3 component with Composition API and TypeScript"
-  },
-  "Vue 3 Component (Options API)": {
-    "prefix": "vbase-options",
-    "body": [
+
       "<template>",
       "  <div>",
       "    ${0}",
       "  </div>",
-      "</template>",
-      "",
-      "<script lang=\"ts\">",
-      "export default {",
-      "  name: '${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}',",
-      "  data() {",
-      "    return {",
-      "      ${1}",
-      "    }",
-      "  },",
-      "  methods: {",
-      "    ${2}",
-      "  }",
-      "}",
-      "</script>",
-      "",
-      "<style scoped>",
-      "</style>"
+      "</template>"
     ],
-    "description": "Vue 3 component with Options API"
+    "description": "Vue 3 component with Composition API and TypeScript"
   },
   "ref": {
     "prefix": "vref",
@@ -80,6 +49,11 @@
     "prefix": "vfor",
     "body": "v-for=\"${1:item} in ${2:items}\" :key=\"${1}.id\"$0",
     "description": "Vue v-for directive"
+  },
+  "v-for-idx": {
+    "prefix": "vfor-idx",
+    "body": "v-for=\"${1:item},idx in ${2:items}\" :key=\"idx\"$0",
+    "description": "Vue v-for directive with index"
   },
   "v-if": {
     "prefix": "vif",
@@ -171,13 +145,13 @@
     "description": "Vue inject()"
   },
   ":class directive": {
-    "prefix": "class",
+    "prefix": "vclass",
     "body": ":class=\"$1\"$0",
     "description": "Vue :class directive"
   },
   ":class arr": {
-    "prefix": "class-arr",
+    "prefix": "vclass-arr",
     "body": ":class=\"['$1', { $0 }]\"",
-    "description": "Vue :class array"
+    "description": "Vue :class array directive"
   }
 }
