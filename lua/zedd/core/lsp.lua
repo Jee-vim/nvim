@@ -5,6 +5,7 @@ vim.lsp.enable({
   "css_ls",
   "nixd_ls",
   "zls",
+  "volar",
 })
 vim.lsp.config("*", {
   root_markers = { ".git", "package.json", "tsconfig.json" },

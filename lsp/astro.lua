@@ -6,10 +6,9 @@ return {
     "package.json",
     ".git",
   },
-  -- require to install typescript on project
   init_options = {
     typescript = {
-      tsdk = "node_modules/typescript/lib",
+      tsdk = "/run/current-system/sw/lib/node_modules/typescript/lib",
     },
   }
 }
