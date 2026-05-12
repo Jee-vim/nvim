@@ -1,5 +1,8 @@
 local command = vim.api.nvim_create_user_command
 
 command("TSPrintNode", function()
-  vim.notify(require("nvim-treesitter.ts_utils").get_node_at_cursor():type())
+  local node = vim.treesitter.get_node()
+  if node then
+    vim.notify(node:type())
+  end
 end, { nargs = 0 })
