@@ -9,7 +9,7 @@
 
       "<template>",
       "  <div>",
-      "    ${0}",
+      "    ${0}${TM_FILENAME_BASE}",
       "  </div>",
       "</template>"
     ],
