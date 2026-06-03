@@ -52,7 +52,7 @@
   },
   "v-for-idx": {
     "prefix": "vfor-idx",
-    "body": "v-for=\"${1:item},idx in ${2:items}\" :key=\"idx\"$0",
+    "body": "v-for=\"_,idx in Array.from({ length:2 })\" :key=\"idx\"$0",
     "description": "Vue v-for directive with index"
   },
   "v-if": {
@@ -142,6 +142,11 @@
   "inject": {
     "prefix": "vinject",
     "body": "const ${1:value} = inject(${2:symbol})$0",
+    "description": "Vue inject()"
+  },
+  "router": {
+    "prefix": "vrouter",
+    "body": "import { useRouter } from \"vue-router\"\n\nconst router = useRouter()",
     "description": "Vue inject()"
   },
   ":class directive": {
