@@ -61,12 +61,6 @@ require("mini.cmdline").setup({
     autocorrect = { enable = false }
 })
 
--- mini surround --
-require("mini.surround").setup()
--- | `sa` | Add surrounding or Direct with 'saiw' |
--- | `sd` | Delete surrounding |
--- | `sr` | Replace surrounding |
-
 --- mini completions ---
 require("mini.completion").setup({
     lsp_completion = {
