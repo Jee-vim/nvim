@@ -1,0 +1,368 @@
+{
+  "Public Method Definition": {
+    "prefix": "public method",
+    "body": [
+      "/**",
+      " * ${1:name}",
+      " */",
+      "public ${1:name}() {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Public Method Definition"
+  },
+  "Private Method Definition": {
+    "prefix": "private method",
+    "body": [
+      "private ${1:name}() {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Private Method Definition"
+  },
+  "Property getter": {
+    "prefix": "get",
+    "body": [
+      "",
+      "public get ${1:value}() : ${2:string} {",
+      "\t${3:return $0}",
+      "}",
+      ""
+    ],
+    "description": "Property getter"
+  },
+  "Define a full property": {
+    "prefix": "prop",
+    "body": [
+      "",
+      "private _${1:value} : ${2:string};",
+      "public get ${1:value}() : ${2:string} {",
+      "\treturn this._${1:value};",
+      "}",
+      "public set ${1:value}(v : ${2:string}) {",
+      "\tthis._${1:value} = v;",
+      "}",
+      ""
+    ],
+    "description": "Define a full property"
+  },
+  "Triple-slash reference": {
+    "prefix": "ref",
+    "body": [
+      "/// <reference path=\"$1\" />",
+      "$0"
+    ],
+    "description": "Triple-slash reference"
+  },
+  "Property setter": {
+    "prefix": "set",
+    "body": [
+      "",
+      "public set ${1:value}(v : ${2:string}) {",
+      "\tthis.$3 = v;",
+      "}",
+      ""
+    ],
+    "description": "Property setter"
+  },
+  "Region Start": {
+    "prefix": "#region",
+    "body": [
+      "//#region $0"
+    ],
+    "description": "Folding Region Start"
+  },
+  "Region End": {
+    "prefix": "#endregion",
+    "body": [
+      "//#endregion"
+    ],
+    "description": "Folding Region End"
+  },
+  "type types": {
+    "prefix": "type-types",
+    "body": "type T${1} = {\n\t${2}: ${3}\n}"
+  },
+  "interface": {
+    "prefix": "itf",
+    "body": "interface I${1} {\n\t${2}: ${3}\n}"
+  },
+  "interface extends": {
+    "prefix": "itf-ext",
+    "body": "interface I$1 extends I$2 {\n\t$3: $4\n}"
+  },
+  "declare interface": {
+    "prefix": "dec-itf",
+    "body": "declare interface I${1} {\n\t${2}: ${3}\n}"
+  },
+  "declare interface extends": {
+    "prefix": "dec-itf-ext",
+    "body": "declare interface I${1} extends I${2:} {${3} }"
+  },
+  "props-types": {
+    "prefix": "props-types",
+    "body": "{\t$1\t}:{$1:${2:types}}"
+  },
+  "handle change": {
+    "prefix": "handle-change",
+    "body": "const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {\n\tconst { name, value } = event.target\n\tsetForm({ ...form, [name]: value })\n}"
+  },
+  "handle submit": {
+    "prefix": "handle-submit",
+    "body": "const handleSubmit= (event: React.FormEvent<HTMLFormElement>) => {\n\t event.preventDefault()\n\t $0\n}"
+  },
+  "set state ": {
+    "prefix": "set-state",
+    "body": "React.Dispatch<React.SetStateAction<$1>>"
+  },
+  "handle events ": {
+    "prefix": "handle-func",
+    "body": [
+      "const handle${1:func} = () => {",
+      "\t$2",
+      "}"
+    ],
+    "description": "handle events"
+  },
+  "JSON.stringify()": {
+    "prefix": "json-stringify",
+    "body": "JSON.stringify($0)"
+  },
+  "JSON.parse()": {
+    "prefix": "json-parse",
+    "body": "JSON.parse($0)"
+  },
+  "ternary": {
+    "prefix": "ternary",
+    "body": "${1:cond} ? ${2:true} : ${3:false}"
+  },
+  "custom hook": {
+    "prefix": "hook",
+    "body": "export const use${1:HookName} = () => {\n\t${2}\n}"
+  },
+  "Object": {
+    "prefix": "obj",
+    "body": "{\n\t${0}\n}",
+    "description": "Object"
+  },
+  "Obj return null": {
+    "prefix": "obj-return-null",
+    "body": "{\n\t${0}\n\treturn null;\n}",
+    "description": "Obj return null"
+  },
+  "Switch Statement": {
+    "prefix": "switch-case",
+    "body": [
+      "switch (${1:key}) {",
+      "\tcase ${2:value}:",
+      "\t\t$0",
+      "\t\tbreak;",
+      "",
+      "\tdefault:",
+      "\t\tbreak;",
+      "}"
+    ],
+    "description": "Switch Statement"
+  },
+  "If-Else Statement": {
+    "prefix": "if else",
+    "body": [
+      "if (${1:condition}) {",
+      "\t$0",
+      "} else {",
+      "\t",
+      "}"
+    ],
+    "description": "If-Else Statement"
+  },
+  "else if statement": {
+    "prefix": "elif",
+    "body": "else if (${1:condition}) {\n\t${0}\n}"
+  },
+  "While Statement": {
+    "prefix": "while",
+    "body": [
+      "while (${1:condition}) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "While Statement"
+  },
+  "Set Timeout Function": {
+    "prefix": "set-timeout",
+    "body": [
+      "setTimeout(() => {",
+      "\t$0",
+      "}, ${1:timeout});"
+    ],
+    "description": "Set Timeout Function"
+  },
+  "Set Interval Function": {
+    "prefix": "set-interval",
+    "body": [
+      "setInterval(() => {",
+      "\t$0",
+      "}, ${1:interval});"
+    ],
+    "description": "Set Interval Function"
+  },
+  "Array of obj": {
+    "prefix": "array-of-obj",
+    "body": "[\n\t{\n\t\t${0}\n\t}\n]",
+    "description": "Array of obj"
+  },
+  "Array ": {
+    "prefix": "array",
+    "body": "[\t${0}\t]",
+    "description": "Array of obj"
+  },
+  "Generate Array": {
+    "prefix": "array-from",
+    "body": "Array.from({ length: ${1:5}})",
+    "description": "Generate array"
+  },
+  "Function Statement": {
+    "prefix": "fn",
+    "body": [
+      "function ${1:name}(${2:params}:${3:type}) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Function Statement"
+  },
+  "async function": {
+    "prefix": "fn-async",
+    "body": "async function (${1:arguments}) {\n\t${0}\n}"
+  },
+  "anonymous function": {
+    "prefix": "fn-anonymous",
+    "body": "function (${1:arguments}) {${0}}"
+  },
+  "arrow function ": {
+    "prefix": "fn-arrow",
+    "body": "($1) => {$2}"
+  },
+  "return new object": {
+    "prefix": "rtn-new-obj",
+    "body": "return {\n\t${0}\n}"
+  },
+  "return new array": {
+    "prefix": "rtn-new-array",
+    "body": "return [\n\t${0}\n]"
+  },
+  "return promise": {
+    "prefix": "rtn-promise",
+    "body": "return new Promise((resolve, reject) => {\n\t${0}\n})"
+  },
+  "Import": {
+    "prefix": "imp-default",
+    "body": [
+      "import $1 from \"${2}\";"
+    ],
+    "description": "Import module"
+  },
+  "import module destructured": {
+    "prefix": "imp-destructured",
+    "body": "import {$2} from \"${1:module}\""
+  },
+  "console.log": {
+    "prefix": "clo",
+    "body": "console.${0|log,table,debug|}(${1})"
+  },
+  "console.log with string": {
+    "prefix": "clo-string",
+    "body": "console.log(${0}, '${0}')"
+  },
+  "console.log with JSON.stringify": {
+    "prefix": "clo-json",
+    "body": "console.log(JSON.stringify(${0}))"
+  },
+  "console.debug": {
+    "prefix": "clo-debug",
+    "body": "console.debug(${0})"
+  },
+  "console.debug with JSON.stringify": {
+    "prefix": "clod-jsonStringify",
+    "body": "console.debug(JSON.stringify(${0}))"
+  },
+  "console.log a variable": {
+    "prefix": "clo-var",
+    "body": "console.log(\"${0}:\", ${0})"
+  },
+  "console.error": {
+    "prefix": "clo-err",
+    "body": "console.error(${0})"
+  },
+  "forEach loop": {
+    "prefix": "forEach-iterable",
+    "body": "${1:iterable}.forEach((${2:item}) => {\n\t${0}\n})"
+  },
+  "map": {
+    "prefix": "map",
+    "body": "${1:iterable}.map((${2:item}) => {\n\t${0}\n})"
+  },
+  "reduce": {
+    "prefix": "reduce",
+    "body": "${1:iterable}.reduce((${2:previous}, ${3:current}) => {\n\t${0}\n}${4:, initial})"
+  },
+  "filter": {
+    "prefix": "filter",
+    "body": "${1:iterable}.filter((${2:item}) => {\n\t${0}\n})"
+  },
+  "find": {
+    "prefix": "find",
+    "body": "${1:iterable}.find((${2:item}) => {\n\t${0}\n})"
+  },
+  "every": {
+    "prefix": "every",
+    "body": "${1:iterable}.every((${2:item}) => {\n\t${0}\n})"
+  },
+  "some": {
+    "prefix": "some",
+    "body": "${1:iterable}.some((${2:item}) => {\n\t${0}\n})"
+  },
+  "let statement": {
+    "prefix": "let",
+    "body": "let ${1:name} = ${2:value}"
+  },
+  "const statement": {
+    "prefix": "cnt",
+    "body": "const ${1:name} = ${2:value}"
+  },
+  "const object": {
+    "prefix": "cnt-obj",
+    "body": "const ${1:name} = {\n\t${0}\n}"
+  },
+  "const array": {
+    "prefix": "cnt-arr",
+    "body": "const ${1:name} = [\n\t${0}\n]"
+  },
+  "const statement from array destructuring": {
+    "prefix": "cnt-destructuring-array",
+    "body": "const [ ${2:prop} ] = ${1:value}"
+  },
+  "const statement from obj destructuring": {
+    "prefix": "cnt-destructuring-obj",
+    "body": "const { ${2:prop} } = ${1:value}"
+  },
+  "module export": {
+    "prefix": "exp-cnt",
+    "body": "export const ${1:var}"
+  },
+  "module default export": {
+    "prefix": "exp-def",
+    "body": "export default ${1:func}(${2:arguments}) {\n\treturn ${0}\n}"
+  },
+  "try/catch": {
+    "prefix": "try",
+    "body": "try {\n\t${0}\n} catch (${1:err}) {\n\t\n}"
+  },
+  "try/finally": {
+    "prefix": "try-finnaly",
+    "body": "try {\n\t${0}\n} finally {\n\t\n}"
+  },
+  "try/catch/finally": {
+    "prefix": "trcf",
+    "body": "try {\n\t${0}\n} catch (${1:err}) {\n\t\n} finally {\n\t\n}"
+  }
+}

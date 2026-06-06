@@ -21,19 +21,14 @@
     ],
     "description": "FIXME reminder"
   },
-  "pwgen16": {
-    "prefix": ["pwgen16"],
-    "body": ["${VIM:system('pwgen -s 16 -1 | tr -d \"\n\"')}"],
-    "description": "Generate password with 16 characters"
-  },
   "Lorem Ipsum Sentence": {
-    "prefix": "loremSent",
+    "prefix": "lorem-sentence",
     "body": "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
     "description": "Lorem Ipsum Sentence"
   },
 
   "Lorem Ipsum Paragraph": {
-    "prefix": "loremPara",
+    "prefix": "lorem-paragraph",
     "body": "Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate voluptate dolor minim nulla est proident. Nostrud officia pariatur ut officia. Sit irure elit esse ea nulla sunt ex occaecat reprehenderit commodo officia dolor Lorem duis laboris cupidatat officia voluptate. Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt duis officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim. Voluptate laboris sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis.",
     "description": "Lorem Ipsum Paragraph"
   },
@@ -64,70 +59,4 @@
       "SOFTWARE."
     ]
   },
-  "dummy data array of objects javascript": {
-    "prefix": "dummy-data-array-of-objects-js",
-    "body": [
-      "const dummyData = [",
-      "  {",
-      "    id: 1,",
-      "    name: 'John Doe',",
-      "    age: 30",
-      "  },",
-      "  {",
-      "    id: 2,",
-      "    name: 'asley',",
-      "    age: 20",
-      "  },",
-      "  {",
-      "    id: 3,",
-      "    name: 'kimber',",
-      "    age: 27",
-      "  },",
-      "  {",
-      "    id: 4,",
-      "    name: 'jason bert',",
-      "    age: 23",
-      "  },",
-      "  {",
-      "    id: 5,",
-      "    name: 'derulo',",
-      "    age: 24",
-      "  },",
-      "];"
-    ]
-  },
-  "dummy data json": {
-    "prefix": "dummy-data-json",
-    "body": [
-      "{",
-      " \"data\": [",
-      "    {",
-      "      \"id\": 1,",
-      "      \"name\": \"John Doe\",",
-      "      \"age\": 30",
-      "    },",
-      "    {",
-      "      \"id\": 2,",
-      "      \"name\": \"asley\",",
-      "      \"age\": 20",
-      "    },",
-      "    {",
-      "      \"id\": 3,",
-      "      \"name\": \"kimbert\",",
-      "      \"age\": 27",
-      "    },",
-      "    {",
-      "      \"id\": 4,",
-      "      \"name\": \"jason bert\",",
-      "      \"age\": 23",
-      "    },",
-      "    {",
-      "      \"id\": 5,",
-      "      \"name\": \"derulo\",",
-      "      \"age\": 24",
-      "    }",
-      "  ]",
-      "}"
-    ]
-  }
 }
