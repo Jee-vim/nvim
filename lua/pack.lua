@@ -2,6 +2,7 @@ vim.pack.add({
   "https://github.com/ellisonleao/gruvbox.nvim",
   "https://github.com/nvim-mini/mini.nvim",
   { src = "https://github.com/nvim-treesitter/nvim-treesitter", branch = "main" },
+  "https://github.com/tpope/vim-fugitive",
 })
 
 local map = vim.keymap.set
@@ -86,8 +87,15 @@ require('mini.snippets').setup({
 require("mini.git").setup()
 
 map("n", "<leader>gs", "<cmd>lua MiniGit.show_at_cursor()<CR>", { desc = "Show Git data under cursor" })
-map("n", "<leader>gd", "<CMD>lua MiniGit.show_diff_source()<CR>", { desc = "Show Git diff side-by-side" })
 map("n", "<leader>gn", "/^[<=>]\\{7\\}<CR>", { desc = "Next merge conflict" })
 map("n", "<leader>gp", "?^[<=>]\\{7\\}<CR>", { desc = "Prev merge conflict" })
 map("n", "<leader>go", "<cmd>%diffget LOCAL<CR>", { desc = "Choose Local (Our changes)" })
 map("n", "<leader>gi", "<cmd>%diffget REMOTE<CR>", { desc = "Choose Remote (Incoming changes)" })
+
+--- mini diff and fugitive ---
+local MiniDiff = require("mini.diff")
+MiniDiff.setup({
+	source = MiniDiff.gen_source.git({ index = false }),
+})
+
+vim.keymap.set("n", "<leader>gd", "<cmd>Gvdiffsplit<CR>", { desc = "Git diff split", })

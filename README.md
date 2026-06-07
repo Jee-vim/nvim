@@ -26,6 +26,7 @@ Zero external plugin manager. Built on Neovim >=0.11's native `vim.pack`.
 | [gruvbox.nvim](https://github.com/ellisonleao/gruvbox.nvim) | Colorscheme |
 | [mini.nvim](https://github.com/nvim-mini/mini.nvim) | Modular utilities (see below) |
 | [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) | Syntax highlighting |
+| [vim-fugitive](https://github.com/tpope/vim-fugitive) | Git integration |
 
 ### mini.nvim Modules Used
 
