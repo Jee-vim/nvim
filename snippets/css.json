@@ -685,5 +685,186 @@
   "!important (alt)": {
     "prefix": "i",
     "body": "!important"
+  },
+  "global border reset": {
+    "prefix": "glo-border-reset",
+    "body": [
+      "*,",
+      "::after,",
+      "::before,",
+      "::backdrop,",
+      "::file-selector-button {",
+      "  border-color: var(--\${1:foreground});",
+      "}"
+    ],
+    "description": "Sets the default border color for all elements and pseudo-elements using a CSS variable."
+  },
+  "global button reset": {
+    "prefix": "glo-button-reset",
+    "body": [
+      "button {",
+      "  all: unset;",
+      "  cursor: pointer;",
+      "}",
+      "button:focus,",
+      "button:focus-visible,",
+      "button:active {",
+      "  outline: none !important;",
+      "  box-shadow: none !important;",
+      "}"
+    ],
+    "description": "Resets default button styles and removes focus outline and box-shadow states."
+  },
+  "global input textarea reset": {
+    "prefix": "glo-input-reset",
+    "body": [
+      "input,",
+      "input,",
+      "textarea {",
+      "  appearance: none;",
+      "  outline: none;",
+      "  width: 100%;",
+      "  height: 100%;",
+      "  font-size: 0.875rem;",
+      "}",
+      "",
+      "input::placeholder,",
+      "textarea::placeholder {",
+      "  color: var(--\${1:fg-muted});",
+      "}",
+      "",
+      ":has(input:required) > label::after,",
+      ":has(textarea:required) > label::after,",
+      ":has([data-required]) > label::after {",
+      "  content: \" \";",
+      "  color: red;",
+      "}",
+      "",
+      ":has(input:disabled),",
+      ":has(textarea:disabled),",
+      ":has([data-disabled]) {",
+      "  cursor: not-allowed;",
+      "  opacity: 0.6;",
+      "  background: var(--\${1:fg-muted});",
+      "}"
+    ],
+    "description": "Resets appearance and outline for form inputs, styles placeholders, and appends a required indicator to labels."
+  },
+  "global scrollbar and selection styling": {
+    "prefix": "glo-scrollbar-selection",
+    "body": [
+      "::-webkit-scrollbar {",
+      "  width: 8px;",
+      "  height: 8px;",
+      "}",
+      "",
+      "::-webkit-scrollbar-track {",
+      "  background: transparent;",
+      "}",
+      "",
+      "::-webkit-scrollbar-thumb {",
+      "  background-color: var(--primary);",
+      "  border-radius: 0;",
+      "  border: 2px solid transparent;",
+      "  background-clip: content-box;",
+      "}",
+      "",
+      "::-webkit-scrollbar-thumb:hover {",
+      "  background-color: var(--primary-600);",
+      "  cursor: pointer;",
+      "}",
+      "",
+      "::selection {",
+      "  background-color: var(--primary);",
+      "  color: var(--bg);",
+      "}",
+      "",
+      ".no-scrollbar::-webkit-scrollbar {",
+      "  display: none;",
+      "}",
+      ".no-scrollbar {",
+      "  -ms-overflow-style: none;",
+      "  scrollbar-width: none;",
+      "}"
+    ],
+    "description": "Custom global rules for scrollbars, selection text highlights, and a utility class to hide scrollbars entirely."
+  },
+  "class": {
+    "prefix": "tw-class",
+    "body": ".${1:name} {\n\t@apply ${0}\n}",
+    "description": "class name"
+  },
+  "aspect ration": {
+    "prefix": "tw-aspect",
+    "body": "aspect-${1|auto,square,video,[]|}"
+  },
+  "object fit": {
+    "prefix": "tw-obj-fit",
+    "body": "object-${1|contain,cover,fill,none,scale-down|}"
+  },
+  "object position": {
+    "prefix": "tw-obj-position",
+    "body": "object-${1|bottom,center,left,left-bottom,left-top,right,right-bottom,right-top,top|}"
+  },
+  "overflow": {
+    "prefix": "tw-overflow",
+    "body": "overflow-${1|hidden,auto,clip,visible,scroll,x-auto,y-auto,x-hidden,y-hidden,x-clip,y-xlip,x-visible,y-visible,x-scroll,y-scroll|}"
+  },
+  "flexs center between": {
+    "prefix": "tw-flex-center-justify",
+    "body": "flex items-center justify-${1|center,between,normal,start,end,evenly,around,stretch|}"
+  },
+  "flexs center center": {
+    "prefix": "tw-flex-center",
+    "body": "flex items-center gap-[${1|4,8,12,16,px}]"
+  },
+  "flex column": {
+    "prefix": "tw-flex-col",
+    "body": "flex flex-col gap-[${1|4,8,12,16,px}]"
+  },
+  "background gradient": {
+    "prefix": "tw-bg-gradient",
+    "body": "bg-gradient-to-r from-${1|blue-500} to-${1|purple-500}"
+  },
+  "backdrop blur": {
+    "prefix": "tw-bg-blur",
+    "body": "shadow-sm backdrop-blur-md bg-slate-900"
+  },
+  "transition propery": {
+    "prefix": "tw-transition",
+    "body": "transition-${1|none,all,colors,opacity,shadow,transform|}"
+  },
+  "custome animate": {
+    "prefix": "tw-smooth-transition",
+    "body": "transition-all duration-300 ease-in-out",
+    "description": "smooth transition"
+  },
+  "custome arbitrary": {
+    "prefix": "tw-&",
+    "body": "[&>$1]:$2",
+    "description": "arbitrary starter"
+  },
+  "tailwind custom utilities setup": {
+    "prefix": "tw-utilities-setup",
+    "body": [
+      "@utility container {",
+      "  max-width: 1280px;",
+      "  width: 100%;",
+      "  margin-inline: auto;",
+      "  padding-inline: clamp(1rem, 1.5vw, 2rem);",
+      "}",
+      "",
+      "@utility text-* {",
+      "  --value: --value(integer);",
+      "  font-size: clamp(",
+      "    calc(var(--value) * 0.8px),",
+      "    5.985vw + 1.212rem,",
+      "    calc(var(--value) * 1px)",
+      "  );",
+      "  line-height: 1;",
+      "  letter-spacing: 0%;",
+      "}"
+    ],
+    "description": "Combines Tailwind v4 custom utilities for a fluid layout container and a dynamic functional text engine."
   }
 }
