@@ -694,7 +694,7 @@
       "::before,",
       "::backdrop,",
       "::file-selector-button {",
-      "  border-color: var(--\${1:foreground});",
+      "  border-color: var(--fg);",
       "}"
     ],
     "description": "Sets the default border color for all elements and pseudo-elements using a CSS variable."
@@ -730,7 +730,7 @@
       "",
       "input::placeholder,",
       "textarea::placeholder {",
-      "  color: var(--\${1:fg-muted});",
+      "  color: var(--fg-muted);",
       "}",
       "",
       ":has(input:required) > label::after,",
@@ -745,7 +745,7 @@
       ":has([data-disabled]) {",
       "  cursor: not-allowed;",
       "  opacity: 0.6;",
-      "  background: var(--\${1:fg-muted});",
+      "  background: var(--fg-muted);",
       "}"
     ],
     "description": "Resets appearance and outline for form inputs, styles placeholders, and appends a required indicator to labels."
@@ -816,15 +816,15 @@
   },
   "flexs center center": {
     "prefix": "tw-flex-center",
-    "body": "flex items-center gap-[${1|4,8,12,16,px}]"
+    "body": "flex items-center gap-[${1|4,8,12,16,px|}]"
   },
   "flex column": {
     "prefix": "tw-flex-col",
-    "body": "flex flex-col gap-[${1|4,8,12,16,px}]"
+    "body": "flex flex-col gap-[${1|4,8,12,16,px|}]"
   },
   "background gradient": {
     "prefix": "tw-bg-gradient",
-    "body": "bg-gradient-to-r from-${1|blue-500} to-${1|purple-500}"
+    "body": "bg-gradient-to-r from-${1|blue-500|} to-${1|purple-500|}"
   },
   "backdrop blur": {
     "prefix": "tw-bg-blur",
