@@ -32,15 +32,29 @@ MiniExtra.setup()
 
 map("n", "<leader>ff", function() MiniPick.builtin.files() end, { desc = "Mini File Picker" })
 map("n", "<leader>fo", function() MiniExtra.pickers.oldfiles() end, { desc = "Mini Old File Picker" })
-map("n", "<leader>fg", function() MiniPick.builtin.grep({ pattern = vim.fn.expand("<cword>") }) end,
+map("n", "<leader>fg", function() MiniPick.builtin.grep_live({ pattern = vim.fn.expand("<cword>") }) end,
   { desc = "Grep word/Search word" })
 map("n", "<leader>fh", function() MiniPick.builtin.help() end, { desc = "Mini Help" })
 map("n", "<leader>fk", function() MiniExtra.pickers.keymaps() end, { desc = 'Search keymaps' })
 map("n", "<leader>xx", function() MiniExtra.pickers.diagnostic() end, { desc = "Mini Picker Diagnostics" })
 map("n", "<leader>fc", function() MiniExtra.pickers.git_files({ scope = "modified" }) end,
   { desc = "Search changed files" })
-map("n", "<leader>fX", function() MiniExtra.pickers.git_files({ scope = "unmerged" }) end,
-  { desc = "Search conflict files" })
+map("n", "<leader>fX", function()
+  local stdout = vim.fn.systemlist("git grep -l -F '<<<<<<< HEAD'")
+  if vim.v.shell_error ~= 0 or #stdout == 0 then
+    print("[INFO] No conflict markers found")
+    return
+  end
+
+  MiniPick.start({
+    source = {
+      items = stdout,
+      name = "Git Conflicts",
+      choose = function(item) MiniPick.default_choose(item) end,
+      preview = function(buf_id, item) MiniPick.default_preview(buf_id, item) end,
+    },
+  })
+end, { desc = "Search conflict files" })
 
 -- mini notify --
 require("mini.notify").setup({
@@ -69,28 +83,59 @@ require("mini.completion").setup({
   }
 })
 
---- mini snippets ---
-local gen_loader = require('mini.snippets').gen_loader
-local snippets_dir = vim.fn.expand('~/.config/nvim/snippets')
-
-require('mini.snippets').setup({
-  mappings = {
-    expand = '<Tab>',
-  },
-  snippets = {
-    gen_loader.from_lang({ path = snippets_dir }),
-    gen_loader.from_file(snippets_dir .. '/global.json'),
-  },
-})
-
 --- mini git ---
 require("mini.git").setup()
 
 map("n", "<leader>gs", "<cmd>lua MiniGit.show_at_cursor()<CR>", { desc = "Show Git data under cursor" })
 map("n", "<leader>gn", "/^[<=>]\\{7\\}<CR>", { desc = "Next merge conflict" })
 map("n", "<leader>gp", "?^[<=>]\\{7\\}<CR>", { desc = "Prev merge conflict" })
-map("n", "<leader>go", "<cmd>%diffget LOCAL<CR>", { desc = "Choose Local (Our changes)" })
-map("n", "<leader>gi", "<cmd>%diffget REMOTE<CR>", { desc = "Choose Remote (Incoming changes)" })
+map("n", "<leader>go", function()
+  local cursor = vim.api.nvim_win_get_cursor(0)[1]
+  local start_lnum = vim.fn.search("^<<<<<<<", "bnW")
+  local end_lnum = vim.fn.search("^>>>>>>>", "nW")
+
+  if start_lnum > 0 and end_lnum > 0 and cursor >= start_lnum and cursor <= end_lnum then
+    local sep_lnum = 0
+    local lines = vim.api.nvim_buf_get_lines(0, start_lnum - 1, end_lnum, false)
+    for i, line in ipairs(lines) do
+      if line:match("^=======$") then
+        sep_lnum = start_lnum + i - 1
+        break
+      end
+    end
+
+    if sep_lnum > start_lnum and sep_lnum < end_lnum then
+      vim.api.nvim_buf_set_lines(0, sep_lnum - 1, end_lnum, false, {})
+      vim.api.nvim_buf_set_lines(0, start_lnum - 1, start_lnum, false, {})
+    end
+  else
+    print("[WARN] Cursor is not inside a valid conflict block")
+  end
+end, { desc = "Choose Local (Our changes)" })
+
+map("n", "<leader>gt", function()
+  local cursor = vim.api.nvim_win_get_cursor(0)[1]
+  local start_lnum = vim.fn.search("^<<<<<<<", "bnW")
+  local end_lnum = vim.fn.search("^>>>>>>>", "nW")
+
+  if start_lnum > 0 and end_lnum > 0 and cursor >= start_lnum and cursor <= end_lnum then
+    local sep_lnum = 0
+    local lines = vim.api.nvim_buf_get_lines(0, start_lnum - 1, end_lnum, false)
+    for i, line in ipairs(lines) do
+      if line:match("^=======$") then
+        sep_lnum = start_lnum + i - 1
+        break
+      end
+    end
+
+    if sep_lnum > start_lnum and sep_lnum < end_lnum then
+      vim.api.nvim_buf_set_lines(0, end_lnum - 1, end_lnum, false, {})
+      vim.api.nvim_buf_set_lines(0, start_lnum - 1, sep_lnum, false, {})
+    end
+  else
+    print("[WARN] Cursor is not inside a valid conflict block")
+  end
+end, { desc = "Choose Remote (Their changes)" })
 
 --- mini diff and fugitive ---
 local MiniDiff = require("mini.diff")
