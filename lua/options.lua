@@ -28,11 +28,11 @@ vim.o.foldtext = "v:lua.fold_text()"
 vim.o.foldlevelstart = 99
 
 vim.opt.fillchars:append({
-	eob = " ",
+  eob = " ",
 })
 vim.opt.listchars = {
-	tab = "  ",
-	space = " ",
+  tab = "  ",
+  space = " ",
 }
 
 vim.opt.clipboard:append("unnamedplus")
@@ -43,14 +43,14 @@ vim.o.scrolloff = 8
 vim.o.signcolumn = "yes"
 vim.o.cmdheight = 0
 vim.o.termguicolors = true
-vim.o.cursorline = true 
+vim.o.cursorline = true
 vim.o.winblend = 5
 vim.o.wildoptions = "pum"
 vim.o.pumblend = 5
 vim.o.background = "dark"
 
 function fold_text()
-	local line = vim.fn.getline(vim.v.foldstart)
-	local line_text = string.gsub(line, '^"{\\+', "")
-	return line_text
+  local line = vim.fn.getline(vim.v.foldstart)
+  local line_text = string.gsub(line, '^"{\\+', "")
+  return line_text
 end

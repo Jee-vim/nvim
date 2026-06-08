@@ -32,6 +32,6 @@ map("n", "<leader>hn", "vaBzf", { desc = "Hide Block (Braces)" })
 map("n", "<leader>ho", "zo", { desc = "Show / Open Fold" })
 
 map("n", "<leader>u", function()
-    vim.cmd.packadd("nvim.undotree")
-    require("undotree").open()
+  vim.cmd.packadd("nvim.undotree")
+  require("undotree").open()
 end, { desc = "Toggle Undotree" })
