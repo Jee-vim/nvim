@@ -1,6 +1,6 @@
 {
   "import": {
-    "prefix": "cnt-import",
+    "prefix": "cnt-imp",
     "body": "const $1 = @import(\"$2\");",
     "description": "import library"
   },

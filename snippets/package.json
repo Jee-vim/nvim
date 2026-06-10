@@ -1,0 +1,54 @@
+{
+  "name": "custom-snippets",
+  "engines": {
+    "vscode": "^1.11.0"
+  },
+  "contributes": {
+    "snippets": [
+      {
+        "language": "javascript",
+        "path": "./javascript.json"
+      },
+      {
+        "language": "typescript",
+        "path": "./typescript.json"
+      },
+      {
+        "language": "javascriptreact",
+        "path": "./react.json"
+      },
+      {
+        "language": "typescriptreact",
+        "path": "./react.json"
+      },
+      {
+        "language": "vue",
+        "path": "./vue.json"
+      },
+      {
+        "language": "html",
+        "path": "./html.json"
+      },
+      {
+        "language": "css",
+        "path": "./css.json"
+      },
+      {
+        "language": "markdown",
+        "path": "./markdown.json"
+      },
+      {
+        "language": "lua",
+        "path": "./lua.json"
+      },
+      {
+        "language": "zig",
+        "path": "./zig.json"
+      },
+      {
+        "language": ["javascript", "typescript", "javascriptreact", "typescriptreact", "vue", "html", "css", "markdown", "lua", "zig"],
+        "path": "./global.json"
+      }
+    ]
+  }
+}

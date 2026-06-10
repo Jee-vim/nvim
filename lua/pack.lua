@@ -3,6 +3,9 @@ vim.pack.add({
   "https://github.com/nvim-mini/mini.nvim",
   { src = "https://github.com/nvim-treesitter/nvim-treesitter", branch = "main" },
   "https://github.com/tpope/vim-fugitive",
+  "https://github.com/L3MON4D3/LuaSnip",
+  "https://github.com/hrsh7th/nvim-cmp",
+  "https://github.com/saadparwaiz1/cmp_luasnip",
 })
 
 local map = vim.keymap.set
@@ -76,12 +79,8 @@ require("mini.cmdline").setup({
   autocorrect = { enable = false }
 })
 
---- mini completions ---
-require("mini.completion").setup({
-  lsp_completion = {
-    auto_setup = true,
-  }
-})
+--- snippet ---
+require('snippet').setup()
 
 --- mini git ---
 require("mini.git").setup()
