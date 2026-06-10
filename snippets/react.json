@@ -1,0 +1,138 @@
+{
+  "react function component ": {
+    "prefix": "rfc",
+    "body": "\n function ${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}({${2}}) {\n\treturn (\n\t\t<div>\n\t\t\t${TM_FILENAME_BASE}\n\t\t</div>\n\t)\n} \n\n export default ${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}",
+    "description": "Creates a React component with props"
+  },
+  "reactFunctionComponent": {
+    "prefix": "rfce",
+    "body": "\n export default function ${2}${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}() {\n\treturn (\n\t\t<div>\n\t\t\t${TM_FILENAME_BASE}${3}\n\t\t</div>\n\t)\n}",
+    "description": "Creates a React functional component without PropTypes"
+  },
+  "arrowFunctionComponentSection": {
+    "prefix": "rfce-section",
+    "body": "\n export const ${TM_FILENAME_BASE} = () => {\n\treturn (\n\t\t<section>\n\t\t\t${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}\n\t\t</section>\n\t)\n}",
+    "description": "Creates a React functional component without PropTypes"
+  },
+  "arrowFunctionComponentNav": {
+    "prefix": "rfce-nav",
+    "body": "\n export const ${TM_FILENAME_BASE} = () => {\n\treturn (\n\t\t<nav>\n\t\t\t${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}\n\t\t</nav>\n\t)\n}",
+    "description": "Creates a React functional component without PropTypes"
+  },
+  "element": {
+    "prefix": "jj",
+    "body": "<${1:elementName}>\n\t$0\n</${1}>",
+    "description": "an element"
+  },
+  "jsx element self closed": {
+    "prefix": "jc",
+    "body": "<${1:elementName} />",
+    "description": "an element self closed"
+  },
+  "jsx elements map": {
+    "prefix": "jm",
+    "body": "{${1:Array.from({length:3})}.map((item, id) => <li key={item.id}>\n\t$0\n</li>)}",
+    "description": "an element self closed"
+  },
+  "jsx elements map with return": {
+    "prefix": "jmr",
+    "body": "{${1:Array.from({length:3})}.map((item, id) => {\n\treturn <li key={id}>\n\t$0\n</li>\n})}",
+    "description": "an element self closed"
+  },
+
+  "useState": {
+    "prefix": "us",
+    "body": "const [${1:setterName}, set${1/(.*)/${1:/capitalize}/}] = useState(${2})$0",
+    "description": "use state hook"
+  },
+  "useEffect": {
+    "prefix": "ug",
+    "body": ["useGSAP(() => {", "\t$1", "}, [])$0"],
+    "description": "React useGSAP() hook"
+  },
+  "useEffect": {
+    "prefix": "ue",
+    "body": ["useEffect(() => {", "\t$1", "}, [])$0"],
+    "description": "React useEffect() hook"
+  },
+  "useEffect with cleanup": {
+    "prefix": "uec",
+    "body": [
+      "useEffect(() => {",
+      "\t$1",
+      "\n\treturn () => {",
+      "\t\t$2",
+      "\t}",
+      "}, [])$0
+    ],
+    "description": "React useEffect() hook with a cleanup function"
+  },
+  "toggle menu navbar": {
+    "prefix": "menu",
+    "body": [
+      "const [ menu, setMenu ] = useState(false)",
+      "const handleMenu = (prev) => setMenu(!prev)"
+    ]
+  },
+  "import env": {
+    "prefix": "env vite",
+    "body": "import.meta.env.$1"
+  },
+  "className": {
+    "prefix": "cl-n",
+    "body": "className=\"${1}\""
+  },
+  "className props": {
+    "prefix": "cl-props",
+    "body": "className?:string"
+  },
+  "style": {
+    "prefix": "style",
+    "body": "style={{${1}: ${2}}}"
+  },
+  "onClick": {
+    "prefix": "on",
+    "body": "on${1|Click,Change,Submit,KeyDown,KeyUp|}={handle${1:}}",
+    "description": "handle onClick events"
+  },
+  "use client": {
+    "prefix": "use-c",
+    "body": "\"use client\""
+  },
+  "use server": {
+    "prefix": "use-s",
+    "body": "\"use server\""
+  },
+  "useSearchParams": {
+    "prefix": "searchParams",
+    "body": "const searchParams = useSearchParams()\nconst params= new URLSearchParams(searchParams)\nconst $1 = params.get(\"$1\");\n"
+  },
+  "set params": {
+    "prefix": "set-params",
+    "body": "params.set(\"$1\", $2)\nwindow.history.pushState(null, '', '?' + params.toString())"
+  },
+  "delete params": {
+    "prefix": "delete-params",
+    "body": "params.delete(\"$1\")\nwindow.history.pushState(null, '', '?' + params.toString())"
+  },
+  "children": {
+    "prefix": "child",
+    "body": "children: React.ReactNode"
+  },
+  "children props": {
+    "prefix": "child-props",
+    "body": "{ children }: { children: React.ReactNode }"
+  },
+  "params-props": {
+    "prefix": "params-props",
+    "body": "{ params }: {  params: Promise<{ slug: string }>  }"
+  },
+  "params-get": {
+    "prefix": "params-get",
+    "body": "const _p = await params;\nconst slug = _p.slug;\n"
+  },
+  "form tanstact": {
+    "prefix": "form-tanstact",
+    "body": "const form = useForm({\n\tdefvaultValues: {$1},\n\tonSubmit: ({ value }) => {\n\t\tconsole.log(value)\n\t}\n})"
+  }
+}

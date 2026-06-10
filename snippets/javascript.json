@@ -1,142 +1,4 @@
 {
-  "require": {
-    "prefix": "req",
-    "body": "require(\"${1:module}\")"
-  },
-  "const module = require(\"module\")": {
-    "prefix": "req-module",
-    "body": "const ${1:module} = require(\"${1:module}\")"
-  },
-  "dom event default": {
-    "prefix": "event",
-    "body": "e.preventDefault()"
-  },
-  "addEventListener": {
-    "prefix": "doc-addListener",
-    "body": "document.addEventListener(\"${1:event}\", ${2:ev} => {\n\t${0}\n})"
-  },
-  "removeEventListener": {
-    "prefix": "doc-removeListener",
-    "body": "document.removeEventListener(\"${1:event}\", ${22:listener})"
-  },
-  "getElementById": {
-    "prefix": "doc-getClass",
-    "body": "document.getElementById(\"${1:id}\")"
-  },
-  "querySelector": {
-    "prefix": "doc-querySelector",
-    "body": "document.querySelector(\"${1:selector}\")"
-  },
-  "createElement": {
-    "prefix": "create-element",
-    "body": "${1:document}.createElement(${2:elem})"
-  },
-  "classList.add": {
-    "prefix": "class-add",
-    "body": "${1:el}.classList.add(\"${2:class}\")"
-  },
-  "classList.remove": {
-    "prefix": "class-remove",
-    "body": "${1:el}.classList.remove(\"${2:class}\")"
-  },
-  "classList.toggle": {
-    "prefix": "class-toggle",
-    "body": "${1:el}.classList.toggle(\"${2:class}\")"
-  },
-  "getAttribute": {
-    "prefix": "attribute-get",
-    "body": "${1:el}.getAttribute(\"${2:attr}\")"
-  },
-  "removeAttribute": {
-    "prefix": "attribute-tremove",
-    "body": "${1:el}.removeAttribute(\"${2:attr}\")"
-  },
-  "setAttribute": {
-    "prefix": "attribute-set",
-    "body": "${1:el}.setAttribute(\"${2:attr}\", ${3:value})"
-  },
-  "appendChild": {
-    "prefix": "child-append",
-    "body": "${1:el}.appendChild(${2:elem})"
-  },
-  "removeChild": {
-    "prefix": "child-remove",
-    "body": "${1:el}.removeChild(${2:elem})"
-  },
-  "this": {
-    "prefix": "t",
-    "body": "this."
-  },
-  "throw new Error": {
-    "prefix": "throw",
-    "body": "throw new ${0:error}"
-  },
-  "For Loop": {
-    "prefix": "for",
-    "body": [
-      "for (let ${1:index} = 0; ${1:index} < ${2:array}.length; ${1:index}++) {",
-      "\tconst ${3:element} = ${2:array}[${1:index}];",
-      "\t$0",
-      "}"
-    ],
-    "description": "For Loop"
-  },
-  "For-Each Loop": {
-    "prefix": "foreach-array",
-    "body": [
-      "${1:array}.forEach(${2:element} => {",
-      "\t$0",
-      "});"
-    ],
-    "description": "For-Each Loop"
-  },
-  "For-In Loop": {
-    "prefix": "forin",
-    "body": [
-      "for (let ${1:key} in ${2:object}) {",
-      "\tif (${2:object}.hasOwnProperty(${1:key})) {",
-      "\t\tconst ${3:element} = ${2:object}[${1:key}];",
-      "\t\t$0",
-      "\t}",
-      "}"
-    ],
-    "description": "For-In Loop"
-  },
-  "For Loop reverse number pattern": {
-    "prefix": "for-reverse-number-pattern",
-    "body": [
-      "for (let i = 5; i >= 0; i--) {",
-      "\tlet row = \"\"",
-      "\tfor (let j = 0; j < i; j++) {",
-      "\t\trow += i + \" \"",
-      "\t}",
-      "\tconsole.log(row)",
-      "}"
-    ],
-    "description": "For Loop reverse number parttern"
-  },
-  "For Loop number pattern": {
-    "prefix": "for-number-pattern",
-    "body": [
-      "for (let i = 0; i <= 5; i++) {",
-      "\tlet row = \"\"",
-      "\tfor (let j = 0; j < i; j++) {",
-      "\t\trow += i + \" \"",
-      "\t}",
-      "\tconsole.log(row)",
-      "}"
-    ],
-    "description": "For Loop number pattern"
-  },
-  "For-Of Loop": {
-    "prefix": "forof",
-    "body": [
-      "for (const ${1:iterator} of ${2:object}) {",
-      "\t$0",
-      "}"
-    ],
-    "description": "For-Of Loop"
-  },
   "handle events ": {
     "prefix": "handle-func",
     "body": [
@@ -145,32 +7,6 @@
       "}"
     ],
     "description": "handle events"
-  },
-  "JSON.stringify()": {
-    "prefix": "json-stringify",
-    "body": "JSON.stringify($0)"
-  },
-  "JSON.parse()": {
-    "prefix": "json-parse",
-    "body": "JSON.parse($0)"
-  },
-  "ternary": {
-    "prefix": "ternary",
-    "body": "${1:cond} ? ${2:true} : ${3:false}"
-  },
-  "custom hook": {
-    "prefix": "hook",
-    "body": "export const use${1:HookName} = () => {\n\t${2}\n}"
-  },
-  "Object": {
-    "prefix": "obj",
-    "body": "{\n\t${0}\n}",
-    "description": "Object"
-  },
-  "Obj return null": {
-    "prefix": "obj-return-null",
-    "body": "{\n\t${0}\n\treturn null;\n}",
-    "description": "Obj return null"
   },
   "Switch Statement": {
     "prefix": "switch-case",
@@ -186,29 +22,9 @@
     ],
     "description": "Switch Statement"
   },
-  "If-Else Statement": {
-    "prefix": "if else",
-    "body": [
-      "if (${1:condition}) {",
-      "\t$0",
-      "} else {",
-      "\t",
-      "}"
-    ],
-    "description": "If-Else Statement"
-  },
-  "else if statement": {
-    "prefix": "elif",
-    "body": "else if (${1:condition}) {\n\t${0}\n}"
-  },
-  "While Statement": {
-    "prefix": "while",
-    "body": [
-      "while (${1:condition}) {",
-      "\t$0",
-      "}"
-    ],
-    "description": "While Statement"
+  "arrow function ": {
+    "prefix": "(",
+    "body": "($1) => {$2}"
   },
   "Set Timeout Function": {
     "prefix": "set-timeout",
@@ -228,53 +44,10 @@
     ],
     "description": "Set Interval Function"
   },
-  "Array of obj": {
-    "prefix": "array-of-obj",
-    "body": "[\n\t{\n\t\t${0}\n\t}\n]",
-    "description": "Array of obj"
-  },
-  "Array ": {
-    "prefix": "array",
-    "body": "[\t${0}\t]",
-    "description": "Array of obj"
-  },
   "Generate Array": {
     "prefix": "array-from",
     "body": "Array.from({ length: ${1:5}})",
     "description": "Generate array"
-  },
-  "Function Statement": {
-    "prefix": "fn",
-    "body": [
-      "function ${1:name}(${2:params}:${3:type}) {",
-      "\t$0",
-      "}"
-    ],
-    "description": "Function Statement"
-  },
-  "async function": {
-    "prefix": "fn-async",
-    "body": "async function (${1:arguments}) {\n\t${0}\n}"
-  },
-  "anonymous function": {
-    "prefix": "fn-anonymous",
-    "body": "function (${1:arguments}) {${0}}"
-  },
-  "arrow function ": {
-    "prefix": "fn-arrow",
-    "body": "($1) => {$2}"
-  },
-  "return new object": {
-    "prefix": "rtn-new-obj",
-    "body": "return {\n\t${0}\n}"
-  },
-  "return new array": {
-    "prefix": "rtn-new-array",
-    "body": "return [\n\t${0}\n]"
-  },
-  "return promise": {
-    "prefix": "rtn-promise",
-    "body": "return new Promise((resolve, reject) => {\n\t${0}\n})"
   },
   "Import": {
     "prefix": "imp-default",
@@ -284,64 +57,12 @@
     "description": "Import module"
   },
   "import module destructured": {
-    "prefix": "imp-destructured",
+    "prefix": "imp-destruct",
     "body": "import {$2} from \"${1:module}\""
   },
   "console.log": {
     "prefix": "clo",
-    "body": "console.${0|log,table,debug|}(${1})"
-  },
-  "console.log with string": {
-    "prefix": "clo-string",
-    "body": "console.log(${0}, '${0}')"
-  },
-  "console.log with JSON.stringify": {
-    "prefix": "clo-json",
-    "body": "console.log(JSON.stringify(${0}))"
-  },
-  "console.debug": {
-    "prefix": "clo-debug",
-    "body": "console.debug(${0})"
-  },
-  "console.debug with JSON.stringify": {
-    "prefix": "clod-jsonStringify",
-    "body": "console.debug(JSON.stringify(${0}))"
-  },
-  "console.log a variable": {
-    "prefix": "clo-var",
-    "body": "console.log(\"${0}:\", ${0})"
-  },
-  "console.error": {
-    "prefix": "clo-err",
-    "body": "console.error(${0})"
-  },
-  "forEach loop": {
-    "prefix": "forEach-iterable",
-    "body": "${1:iterable}.forEach((${2:item}) => {\n\t${0}\n})"
-  },
-  "map": {
-    "prefix": "map",
-    "body": "${1:iterable}.map((${2:item}) => {\n\t${0}\n})"
-  },
-  "reduce": {
-    "prefix": "reduce",
-    "body": "${1:iterable}.reduce((${2:previous}, ${3:current}) => {\n\t${0}\n}${4:, initial})"
-  },
-  "filter": {
-    "prefix": "filter",
-    "body": "${1:iterable}.filter((${2:item}) => {\n\t${0}\n})"
-  },
-  "find": {
-    "prefix": "find",
-    "body": "${1:iterable}.find((${2:item}) => {\n\t${0}\n})"
-  },
-  "every": {
-    "prefix": "every",
-    "body": "${1:iterable}.every((${2:item}) => {\n\t${0}\n})"
-  },
-  "some": {
-    "prefix": "some",
-    "body": "${1:iterable}.some((${2:item}) => {\n\t${0}\n})"
+    "body": "console.log(${1})"
   },
   "let statement": {
     "prefix": "let",
@@ -350,14 +71,6 @@
   "const statement": {
     "prefix": "cnt",
     "body": "const ${1:name} = ${2:value}"
-  },
-  "const object": {
-    "prefix": "cnt-obj",
-    "body": "const ${1:name} = {\n\t${0}\n}"
-  },
-  "const array": {
-    "prefix": "cnt-arr",
-    "body": "const ${1:name} = [\n\t${0}\n]"
   },
   "const statement from array destructuring": {
     "prefix": "cnt-destructuring-array",
@@ -374,17 +87,5 @@
   "module default export": {
     "prefix": "exp-def",
     "body": "export default ${1:func}(${2:arguments}) {\n\treturn ${0}\n}"
-  },
-  "try/catch": {
-    "prefix": "try",
-    "body": "try {\n\t${0}\n} catch (${1:err}) {\n\t\n}"
-  },
-  "try/finally": {
-    "prefix": "try-finnaly",
-    "body": "try {\n\t${0}\n} finally {\n\t\n}"
-  },
-  "try/catch/finally": {
-    "prefix": "trcf",
-    "body": "try {\n\t${0}\n} catch (${1:err}) {\n\t\n} finally {\n\t\n}"
   }
 }
