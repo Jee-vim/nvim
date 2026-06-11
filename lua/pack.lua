@@ -12,12 +12,26 @@ local map = vim.keymap.set
 
 -- mini files ----
 local MiniFiles = require("mini.files")
+local string_match = string.match
 MiniFiles.setup({
   mappings = {
     go_in = "<CR>",
     go_in_plus = "L",
     go_out = "_",
     go_out_plus = "H",
+  },
+  content = {
+    filter = function(fs_entry)
+      if fs_entry.name == ".git" or fs_entry.name == "node_modules" then
+        return false
+      end
+
+      if string_match(fs_entry.name, "^%.DS_Store$") then
+        return false
+      end
+
+      return true
+    end,
   },
 })
 

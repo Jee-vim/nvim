@@ -14,12 +14,8 @@
         "path": "./typescript.json"
       },
       {
-        "language": "javascriptreact",
-        "path": "./react.json"
-      },
-      {
         "language": "typescriptreact",
-        "path": "./react.json"
+        "path": "./typescriptreact.json"
       },
       {
         "language": "vue",
@@ -52,3 +48,4 @@
     ]
   }
 }
+

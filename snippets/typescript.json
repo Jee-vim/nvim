@@ -31,10 +31,6 @@
     "prefix": "handle-submit",
     "body": "const handleSubmit= (event: React.FormEvent<HTMLFormElement>) => {\n\t event.preventDefault()\n\t $0\n}"
   },
-  "set state ": {
-    "prefix": "set-state",
-    "body": "React.Dispatch<React.SetStateAction<$1>>"
-  },
   "custom hook": {
     "prefix": "hook",
     "body": "export const use${1:HookName} = () => {\n\t${2}\n}"

@@ -3,18 +3,18 @@ local M = {}
 function M.setup(opts)
   opts = opts or {}
   local snippet_dir = opts.snippet_dir or vim.fn.stdpath("config") .. "/snippets"
-  
-  -- Load LuaSnip
+
   local luasnip = require('luasnip')
-  
-  -- Load VSCode-style snippets
+
   require("luasnip.loaders.from_vscode").load({
     paths = { snippet_dir }
   })
-  
-  -- Setup nvim-cmp
+
+  luasnip.filetype_extend("typescriptreact", { "javascript", "typescript" })
+  luasnip.filetype_extend("vue", { "html", "javascript", "css" })
+
   local cmp = require('cmp')
-  
+
   cmp.setup({
     snippet = {
       expand = function(args)
