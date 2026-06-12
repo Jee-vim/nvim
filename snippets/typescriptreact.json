@@ -1,27 +1,21 @@
 {
-  "react function component ": {
-    "prefix": "rfc",
-    "body": "\n function ${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}({${2}}) {\n\treturn (\n\t\t<div>\n\t\t\t${TM_FILENAME_BASE}\n\t\t</div>\n\t)\n} \n\n export default ${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}",
-    "description": "Creates a React component with props"
-  },
   "reactFunctionComponent": {
     "prefix": "rfce",
-    "body": "\n export default function ${2}${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}() {\n\treturn (\n\t\t<div>\n\t\t\t${TM_FILENAME_BASE}${3}\n\t\t</div>\n\t)\n}",
-    "description": "Creates a React functional component without PropTypes"
-  },
-  "arrowFunctionComponentSection": {
-    "prefix": "rfce-section",
-    "body": "\n export const ${TM_FILENAME_BASE} = () => {\n\treturn (\n\t\t<section>\n\t\t\t${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}\n\t\t</section>\n\t)\n}",
-    "description": "Creates a React functional component without PropTypes"
-  },
-  "arrowFunctionComponentNav": {
-    "prefix": "rfce-nav",
-    "body": "\n export const ${TM_FILENAME_BASE} = () => {\n\treturn (\n\t\t<nav>\n\t\t\t${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}\n\t\t</nav>\n\t)\n}",
-    "description": "Creates a React functional component without PropTypes"
+    "body": [
+      "",
+      "export default function ${1:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}}() {",
+      "\treturn (",
+      "\t\t<${2:div}>",
+      "\t\t\t${TM_FILENAME_BASE}",
+      "\t\t</$2>",
+      "\t)",
+      "}"
+    ],
+    "description": "Creates a React functional component"
   },
   "jsx elements map": {
     "prefix": "jm",
-    "body": "{${1:Array.from({length:3})}.map((item, id) => <li key={item.id}>\n\t$0\n</li>)}",
+    "body": "{${1:Array.from({length:3})}.map((item, id) => <li key={id}>\n\t$0\n</li>)}",
     "description": "an element self closed"
   },
   "jsx elements map with return": {
