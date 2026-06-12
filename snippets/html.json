@@ -15,6 +15,12 @@
     "description": "HTML - Defines the document type",
     "scope": "text.html"
   },
+  "div": {
+    "prefix": "div",
+    "body": "<div>$1</div>",
+    "description": "HTML - Defines the document type",
+    "scope": "text.html"
+  },
   "div 3 times": {
     "prefix": "div3",
     "body": [
@@ -26,7 +32,17 @@
       "\t$1",
       "</div>"
     ],
-    "description": "HTML - Defines a section in a document"
+    "description": "3 div element"
+  },
+
+  "ul > li": {
+    "prefix": "ul",
+    "body": [
+      "<ul>",
+      "\t<li>\n</li>",
+      "</ul>"
+    ],
+    "description": "ul with li child"
   },
   "class attribute": {
     "prefix": "cl",

@@ -124,11 +124,6 @@
     ],
     "description": "Custom global rules for scrollbars, selection text highlights, and a utility class to hide scrollbars entirely."
   },
-  "class": {
-    "prefix": "tw-class",
-    "body": ".${1:name} {\n\t@apply ${0}\n}",
-    "description": "class name"
-  },
   "aspect ration": {
     "prefix": "tw-aspect",
     "body": "aspect-${1|auto,square,video,[]|}"
