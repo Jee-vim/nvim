@@ -2,21 +2,38 @@ local map = vim.keymap.set
 map('n', '<leader>ld', vim.lsp.buf.definition, { desc = "Go to definition" })
 map("n", "<leader>lf", vim.lsp.buf.format, { desc = "Format Local buffer" })
 map('n', '<leader>lr', vim.lsp.buf.rename, { desc = "Rename Symbole" })
-map('n', "<leader>lj", vim.diagnostic.goto_next, { desc = "Next diagnostic" })
-map("n", "<leader>lk", vim.diagnostic.goto_prev, { desc = "Prev diagnostic" })
+map('n', "<leader>lj", function()
+  vim.diagnostic.jump({
+    count= 1,
+    float=true
+  })
+end, { desc = "Next diagnostic" })
+map('n', "<leader>lk", function()
+  vim.diagnostic.jump({
+    count = -1,
+    float = true,
+  })
+end, { desc = "Prev diagnostic" })
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = vim.tbl_deep_extend("force", capabilities, require("mini.completion").get_lsp_capabilities())
+
+capabilities = vim.tbl_deep_extend("force", capabilities, {
+  textDocument = {
+    semanticTokens = {
+      multilineTokenSupport = true,
+    },
+  },
+})
+
+-- [INFO] If cmp_nvim_lsp is loaded, mix its capabilities in as well
+local has_cmp, cmp_lsp = pcall(require, "cmp_nvim_lsp")
+if has_cmp then
+  capabilities = vim.tbl_deep_extend("force", capabilities, cmp_lsp.default_capabilities())
+end
 
 vim.lsp.config("*", {
   root_markers = { ".git", "package.json", "tsconfig.json" },
-  capabilities = {
-    textDocument = {
-      semanticTokens = {
-        multilineTokenSupport = true,
-      },
-    },
-  },
+  capabilities = capabilities,
 })
 
 vim.diagnostic.config({
@@ -25,7 +42,7 @@ vim.diagnostic.config({
   underline = { severity = { min = vim.diagnostic.severity.ERROR } },
   update_in_insert = false,
   severity_sort = true,
-  float = {
+  on_jump = {
     focusable = true,
     style = "minimal",
     border = "rounded",
@@ -56,7 +73,7 @@ vim.lsp.config("css", {
     css = {
       validate = true,
       lint = {
-        unknownAtRules = "ignore",         -- hide unknownAtRules warning in tailwind css
+        unknownAtRules = "ignore", -- hide unknownAtRules warning in tailwind css
       },
     },
     scss = {

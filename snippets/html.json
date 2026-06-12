@@ -1,12 +1,12 @@
 {
-  "custom element": {
+  "element": {
     "prefix": "jj",
-    "body": "<${1:elementName}${2: }>\n\t$0\n</${1}>",
+    "body": "<$1>\n\t$0\n</${1}>",
     "description": "an element"
   },
-  "custom element self closed": {
+  "element self closed": {
     "prefix": "jc",
-    "body": "<${1:elementName} />",
+    "body": "<$1 />",
     "description": "an element self closed"
   },
   "doctype": {

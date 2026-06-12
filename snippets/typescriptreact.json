@@ -19,16 +19,6 @@
     "body": "\n export const ${TM_FILENAME_BASE} = () => {\n\treturn (\n\t\t<nav>\n\t\t\t${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}\n\t\t</nav>\n\t)\n}",
     "description": "Creates a React functional component without PropTypes"
   },
-  "element": {
-    "prefix": "jj",
-    "body": "<${1:elementName}${2: }>\n\t$0\n</${1}>",
-    "description": "an element"
-  },
-  "jsx element self closed": {
-    "prefix": "jc",
-    "body": "<${1:elementName} />",
-    "description": "an element self closed"
-  },
   "jsx elements map": {
     "prefix": "jm",
     "body": "{${1:Array.from({length:3})}.map((item, id) => <li key={item.id}>\n\t$0\n</li>)}",
@@ -39,7 +29,6 @@
     "body": "{${1:Array.from({length:3})}.map((item, id) => {\n\treturn <li key={id}>\n\t$0\n</li>\n})}",
     "description": "an element self closed"
   },
-
   "useState": {
     "prefix": "us",
     "body": "const [${1:setterName}, set${1/(.*)/${1:/capitalize}/}] = useState(${2})$0",
@@ -66,12 +55,8 @@
     "prefix": "env vite",
     "body": "import.meta.env.$1"
   },
-  "className": {
-    "prefix": "cl-n",
-    "body": "className=\"${1}\""
-  },
   "className props": {
-    "prefix": "cl-props",
+    "prefix": "class-props",
     "body": "className?:string"
   },
   "style": {
