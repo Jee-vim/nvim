@@ -1,7 +1,7 @@
 {
   "custom element": {
     "prefix": "jj",
-    "body": "<${1:elementName}>\n\t$0\n</${1}>",
+    "body": "<${1:elementName}${2: }>\n\t$0\n</${1}>",
     "description": "an element"
   },
   "custom element self closed": {
