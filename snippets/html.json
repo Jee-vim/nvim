@@ -9,37 +9,17 @@
     "body": "<$1 />",
     "description": "an element self closed"
   },
-  "doctype": {
-    "prefix": "doctype",
-    "body": ["<!DOCTYPE>", "$1"],
-    "description": "HTML - Defines the document type",
-    "scope": "text.html"
-  },
   "div": {
     "prefix": "div",
-    "body": "<div>$1</div>",
+    "body": "<div>\n\t$1\n</div>",
     "description": "HTML - Defines the document type",
     "scope": "text.html"
   },
-  "div 3 times": {
-    "prefix": "div3",
-    "body": [
-      "<div>",
-      "\t$1",
-      "</div>\n<div>",
-      "\t$1",
-      "</div>\n<div>",
-      "\t$1",
-      "</div>"
-    ],
-    "description": "3 div element"
-  },
-
   "ul > li": {
     "prefix": "ul",
     "body": [
       "<ul>",
-      "\t<li>\n</li>",
+      "\t<li>\n\t\t$1\n\t</li>",
       "</ul>"
     ],
     "description": "ul with li child"
