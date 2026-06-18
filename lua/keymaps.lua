@@ -20,6 +20,13 @@ map("v", "n", "nzzzv", { desc = "Next search result cursor centered" })
 map("v", "N", "Nzzzv", { desc = "Prev search result cursor centered" })
 
 map("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "Replace word cursor" })
+map("n", "<leader>n", function ()
+  local word = vim.fn.expand("<cword>")
+  if word ~= "" then
+    vim.fn.setreg("/", "\\<" .. word .. "\\>")
+    vim.cmd("normal! n")
+  end
+end, { desc = "Replace word cursor" })
 map("n", "<leader>x", "<CMD>!chmod +x %<CR>", { desc = "Make file executable", silent = true })
 map("n", "<leader>re", ":restart<CR>", { desc = "Restart" })
 
