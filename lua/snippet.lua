@@ -7,7 +7,7 @@ function M.setup(opts)
   vim.g.vsnip_snippet_dir = snippet_dir
   vim.g.vsnip_filetypes = {
     typescriptreact = {"typescriptreact", "html",  "javascript", "typescript" },
-    vue = { "html", "javascript", "css" },
+    vue = { "html", "javascript", "vue" },
   }
 
   local cmp = require('cmp')
