@@ -1,4 +1,5 @@
 require("vim._core.ui2").enable({})
+require("dashboard")
 require("options")
 require("keymaps")
 require("commands")
