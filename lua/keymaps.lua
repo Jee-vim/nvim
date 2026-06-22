@@ -23,10 +23,16 @@ map("v", "N", "Nzzzv", { desc = "Prev search result cursor centered" })
 map("n", "<leader>s", [[:%s/\<<C-r><C-w>\>//gI<Left><Left><Left>]], {
   desc = "Replace word under cursor"
 })
-map("n", "<leader>S",
-  [[:let @z=expand('<cword>')<CR>:vimgrep /<C-r>z/ `git ls-files`<CR>:copen<CR>:cfdo %s/<C-r>z//ge | update<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>]],
-  { desc = "Replace word cursor all files" }
-)
+map("n", "<leader>S", function()
+  local cwd = vim.fn.expand("<cword>")
+  vim.api.nvim_feedkeys(
+    vim.api.nvim_replace_termcodes(
+      ":vimgrep /" .. cwd .. "/ `git ls-files`<CR>:copen<CR>:cfdo %s/" .. cwd .. "/",
+      true, false, true
+    ),
+    "n", false
+  )
+end, { desc = "Replace word under cursor in all files" })
 map("n", "<leader>n", function ()
   local word = vim.fn.expand("<cword>")
   if word ~= "" then
