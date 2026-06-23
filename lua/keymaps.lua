@@ -11,11 +11,12 @@ map("v", "K", ":m '<-2<CR>gv=gv", { desc = "moves lines up in visual selection" 
 
 map("n", "J", "mzJ`z", { desc = "Join lines without moving cursor" })
 
-map("v", "<C-d>", "<C-d>zz", { desc = "Move down in buffer with cursor centered" })
-map("v", "<C-u>", "<C-u>zz", { desc = "Move up in buffer with cursor centered" })
+map("n", "<C-d>", "<C-d>zz", { desc = "Move down in buffer with cursor centered" })
+map("n", "<C-u>", "<C-u>zz", { desc = "Move up in buffer with cursor centered" })
 
-map("v", "n", "nzzzv", { desc = "Next search result cursor centered" })
-map("v", "N", "Nzzzv", { desc = "Prev search result cursor centered" })
+map("n", "n", "nzz", { desc = "Next search result cursor centered" })
+map("n", "N", "Nzz", { desc = "Prev search result cursor centered" })
+map("n", "G", "Gzz", { desc = "Go to bottom and center" })
 
 map("n", "<leader>s", [[:%s/\<<C-r><C-w>\>//gI<Left><Left><Left>]], {
   desc = "Replace word under cursor"
@@ -30,13 +31,6 @@ map("n", "<leader>S", function()
     "n", false
   )
 end, { desc = "Replace word under cursor in all files" })
-map("n", "<leader>n", function ()
-  local word = vim.fn.expand("<cword>")
-  if word ~= "" then
-    vim.fn.setreg("/", "\\<" .. word .. "\\>")
-    vim.cmd("normal! n")
-  end
-end, { desc = "Search word cursor" })
 
 map("n", "<leader>bd", "<CMD>bd<CR>", { desc = "Close buffer" })
 map("n", "<leader>ba", "<CMD>%bd|e#<CR>", { desc = "Close all buffers except current" })
