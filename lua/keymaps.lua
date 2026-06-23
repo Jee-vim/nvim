@@ -9,9 +9,6 @@ map("n", "<leader>re", ":restart<CR>", { desc = "Restart" })
 map("v", "J", ":m '>+1<CR>gv=gv", { desc = "moves lines down in visual selection" })
 map("v", "K", ":m '<-2<CR>gv=gv", { desc = "moves lines up in visual selection" })
 
-map("v", "<", "<gv", { desc = "Unident and keep selection" })
-map("v", ">", ">gv", { desc = "Ident and keep selection" })
-
 map("n", "J", "mzJ`z", { desc = "Join lines without moving cursor" })
 
 map("v", "<C-d>", "<C-d>zz", { desc = "Move down in buffer with cursor centered" })
