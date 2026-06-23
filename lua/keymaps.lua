@@ -1,9 +1,16 @@
-vim.g.mapleader = " "
-local map = vim.keymap.set
+function map(mode, lhs, rhs, opts)
+    local options = { noremap = true, silent = true }
+    if opts then
+        options = vim.tbl_extend("force", options, opts)
+    end
+    vim.keymap.set(mode, lhs, rhs, options)
+end
 
-map("n", "<Esc>", ":nohl<CR>", { desc = "Clear search highlighting", silent = true })
-map("n", "<leader>w", ":w<CR>", { desc = "Write", silent = true })
-map("n", "<leader>q", ":q<CR>", { desc = "Quit", silent = true })
+vim.g.mapleader = " "
+
+map("n", "<Esc>", ":nohl<CR>", { desc = "Clear search highlighting"})
+map("n", "<leader>w", ":w<CR>", { desc = "Write" })
+map("n", "<leader>q", ":q<CR>", { desc = "Quit" })
 map("n", "<leader>re", ":restart<CR>", { desc = "Restart" })
 
 map("v", "J", ":m '>+1<CR>gv=gv", { desc = "moves lines down in visual selection" })
